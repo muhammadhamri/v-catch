@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Game Bahasa 4</title>
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <!-- END BOOTSTRAP -->
@@ -19,110 +19,54 @@
 
     <!-- font icon -->
     <style>
-      body {
-        background-image: url("../image/background3.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-      }
       #game-container {
         width: 400px;
-        height: 350px;
+        height: 250px;
         border: 1px solid black;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         font-size: 34px;
-        /* background-color: aqua; */
-        margin: 70px auto;
+        background-color: aqua;
+        margin: 40px auto;
         cursor: pointer;
         text-align: center;
         border-radius: 50%;
         box-shadow: 10px 20px 20px rgb(5, 31, 18);
-        color: rgb(228, 18, 18);
       }
 
-      #alertBetul {
-        width: 150px;
-        height: 80px;
-        background-color: rgb(9, 255, 0);
-        margin: 30px auto;
-        line-height: 80px;
+      #answer-input {
+        font-size: 25px;
+        margin-bottom: 10px;
         text-align: center;
-        animation: alertBetul 1s ease infinite;
-        display: none;
-      }
-
-      @keyframes alertBetul {
-        0% {
-          border-radius: 50%;
-        }
-
-        50% {
-          scale: 1.5;
-        }
-
-        100% {
-          border-radius: 25%;
-        }
-      }
-
-      #alertSalah {
-        width: 150px;
-        height: 80px;
-        background-color: rgb(247, 13, 13);
-        margin: 30px auto;
-        line-height: 80px;
-        text-align: center;
-        animation: alertSalah 1s ease infinite;
-        display: none;
-      }
-
-      @keyframes alertSalah {
-        0% {
-          border-radius: 50%;
-        }
-
-        50% {
-          scale: 1.5;
-        }
-
-        100% {
-          border-radius: 25%;
-        }
-      }
-      #alertSalah p {
-        color: aliceblue;
       }
 
       button {
         font-size: 15px;
         font-weight: bold;
-        background-color: rgb(32, 247, 78);
       }
     </style>
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-light bg-primary">
       <a class="navbar-brand" href="#">
-        <img src="../image/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-        V-CATCH
+        <img src="image/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" />
+        Bootstrap
       </a>
     </nav>
     <!-- END navbar -->
 
     <!-- JUMBOTRON -->
-    <div class="jumbotron" style="background-color: rgb(27, 236, 19)">
-      <h5 class="display-4">Welcome! Now you are in Level one</h5>
+    <div class="jumbotron">
+      <h5 class="display-4">Sekarang anda sedang berada di level Satu.</h5>
       <p class="lead">
         Pada level ini kamu akan menterjemahkan kosa kata Bahasa indonesia ke dalam Bahasa Inggris. Ada 15 soal. Jika jawaban benar point 100 dan salah point 0 .Untuk melanjutkan ke level selanjutnya kamu harus mengumpulkan point 1000.
       </p>
       <hr class="my-4" />
-      <p style="color: red">Untuk menguasai materi pada level ini kamu bisa mengunjungi <a href="../level//library.html">Library</a> yang ada pada halaman Home.</p>
-      <a class="btn btn-primary btn-lg" href="../index.html" role="button">Home</a>
+      <p>Untuk menguasai materi pada level ini kamu bisa mengunjungi <a href="library.html">Library</a> yang ada pada halaman Home.</p>
+      <a class="btn btn-primary btn-lg" href="index.html" role="button">Home</a>
     </div>
     <!-- END JUMBOTRON -->
 
@@ -143,27 +87,11 @@
     </div>
 
     <div id="alertSelamat">
-      <p>Congratulation 🏆! You finish level One!</p>
-    </div>
-
-    <div id="alertGagal">
-      <p>Sorry! You are failed!</p>
-    </div>
-
-    <div id="alertLanjut">
-      <p>
-        <a href="level2.html"> <noscript></noscript>Next Level</a>
-      </p>
-    </div>
-
-    <div id="alertUlang">
-      <p>
-        <a href="../levelUlang/levelUlang1.html"> Try Again</a>
-      </p>
+      <p>Congratulation ! You finish level One!</p>
     </div>
 
     <div id="game-container">
-      <button onclick="startGame()">Start Game</button>
+      <button onclick="startGame()">Mulai Permainan</button>
     </div>
 
     <div id="answer-input"></div>
@@ -193,7 +121,7 @@
         { english: "Lamp", indonesian: "Lampu" },
         { english: "Bag", indonesian: "Tas" },
         { english: "Ruller", indonesian: "Penggaris" },
-        { english: "pillow", indonesian: "bantal" },
+        { english: "doormat", indonesian: "Keset Kaki" },
         { english: "mat", indonesian: "Tikar" },
         { english: "Fan", indonesian: "Kipas Angin" },
         { english: "Flower", indonesian: "Bunga" },
@@ -240,7 +168,10 @@
         var userAnswer = document.getElementById("answer-input").value;
         var correctAnswer = shuffledWords[currentWordIndex].english;
 
+        var alertSelamat = document.getElementById("alertSelamat");
+
         if (userAnswer === "") {
+          // Menampilkan popup jika pengguna tidak menjawab
           showPopup("alertBinggo");
           return;
         }
@@ -251,14 +182,13 @@
           showPopup("alertBetul");
 
           if (score >= 1000) {
-            var gameContainer = document.getElementById("game-container");
-            gameContainer.style.display = "none";
+            setTimeout(function () {
+              alertSelamat.style.display = "block";
+            }, 4000);
 
-            alertSelamat.style.display = "block";
-
-            alertBetul.style.display = "none";
-
-            alertLanjut.style.display = "block";
+            setTimeout(function () {
+              window.location.replace("level2.html");
+            }, 4000);
           }
         } else {
           showPopup("alertSalah");
@@ -270,11 +200,8 @@
           resetGameContainer();
           showWord();
         } else if (score < 1000) {
-          var gameContainer = document.getElementById("game-container");
-          gameContainer.style.display = "none";
-          alertGagal.style.display = "block";
-          alertUlang.style.display = "block";
-          alertSalah.style.display = "none";
+          alert("Sorry, You are failed. You need to prepare yourself and study heartly 🔥🔥🔥🔥! please try again!");
+          window.location.replace("level1.html");
         } else {
           alert("Permainan selesai. Skor Akhir Anda: " + score);
           resetGameContainer();
@@ -287,17 +214,12 @@
         }
       }
 
-      function resetGameContainer() {
-        var gameContainer = document.getElementById("game-container");
-        gameContainer.innerHTML = "";
-      }
-
       function showPopup(popupId) {
         var popup = document.getElementById(popupId);
         popup.style.display = "block";
         setTimeout(function () {
           popup.style.display = "none";
-        }, 2500); // Pop-up akan disembunyikan setelah 1 detik
+        }, 1000); // Pop-up akan disembunyikan setelah 1 detik
       }
 
       function resetGameContainer() {
