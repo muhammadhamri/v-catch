@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game Bahasa 4</title>
+    <link rel="stylesheet" href="../style.css" />
+
+    <!-- BOOTSRAPT -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <!-- END BOOTSRAPT -->
+
+      <!-- font icon -->
+
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- font icon -->
+    <style>
+      #game-container {
+        width: 450px;
+        height: 350px;
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 24px;
+        font-weight: bold;
+        /* background-color: rgb(52, 187, 240); */
+        margin: 70px auto;
+        text-align: center;
+        color: black;
+        /* border-radius: 50%; */
+        box-shadow: 10px 20px 20px rgb(241, 30, 41);
+      }
+
+      #answer-input {
+        font-size: 25px;
+        margin-bottom: 10px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      button {
+        font-size: 15px;
+        font-weight: bold;
+        background-color: rgb(21, 255, 0);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-primary">
+      <a class="navbar-brand" href="#">
+        <img src="../image/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" />
+        V-CATCH
+      </a>
+    </nav>
+
+    <!-- navbar -->
+
+    <!-- JUMBOTRON -->
+
+    <div class="jumbotron" style="background-color: rgba(240, 14, 14, 0.979)">
+      <h5 class="display-4 text-white">Never Give Up! You can do it..</h5>
+      <p class="lead text-white">
+        Pada level ini kamu akan melengkapi kalimat rumpang dengan verb dalam pola kalimat Simple Present tense. Ada 15 soal. Jika benar point 100 dan salah point 0 .Untuk melanjutkan ke level selanjutnya kamu harus mengumpulkan point 1000.
+      </p>
+      <hr class="my-4" />
+      <p class="text-white">Untuk menguasai materi pada level ini kamu bisa mengunjungi <a href="../level/library.html">Library</a> yang ada pada halaman Home.</p>
+      <a class="btn btn-primary btn-lg" href="../index.html" role="button">Home</a>
+    </div>
+
+    <!-- END JUMBOTRON -->
+
+    <div class="level">
+      <h1>LEVEL SIX</h1>
+    </div>
+
+
+    <div id="alertBetul">
+      <p>Good Job 🏆🏆</p>
+    </div>
+
+    <div id="alertSalah">
+      <p>Ups! You are wrong !</p>
+    </div>
+
+    <div id="alertBinggo">
+      <p>Ups! No answer yet!</p>
+    </div>
+
+    <div id="alertSelamat">
+      <p>Congratulation 🏆! You finish level Six!</p>
+    </div>
+
+    <div id="alertGagal">
+      <p>Sorry! You are failed!</p>
+    </div>
+
+    <div id="alertLanjut">
+      <p>
+        <a href="../level/level7.html">Next Level</a>
+      </p>
+    </div>
+
+    <div id="alertUlang">
+      <p>
+        <a href="levelUlang6.html"> Try Again</a>
+      </p>
+    </div>
+
+    <div id="container">
+      <div id="game-container">
+        <button onclick="startGame()">Start Game</button>
+      </div>
+
+      <div id="answer-input"></div>
+
+
+       <!-- foooter -->
+
+    <div class="footer">
+      <h5>Visit us</h5>
+      <div class="icons">
+        <a href="https://www.facebook.com/mhamri.spding?mibextid=ZbWKwL" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://sites.google.com/view/smpn2koba/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://wa.me/6285272908546?text=Assalamualaikum.ww.%20Semoga%20kita%20selalu%20dalam%20lindungan%20Allah.SWt.%0A" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@muhammadhamri1085" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <!-- footer end -->
+
+
+      <script>
+        var words = [
+          { english: "play", indonesian: "They.....foot ball." },
+          { english: "study", indonesian: "We......English every Monday." },
+          { english: "goes", indonesian: "Jhon.....to school at 7." },
+          { english: "wears", indonesian: "She.....yellow T-shirt." },
+          { english: "read", indonesian: "They.....book in Library." },
+          { english: "invites", indonesian: "Luna......me to her birthdat party." },
+          { english: "has", indonesian: "Riko..,..two brothers." },
+          { english: "lives", indonesian: "Miss.Azimah.....at Mawar street." },
+          { english: "sings", indonesian: "She...,.a song." },
+          { english: "prepares", indonesian: "My mother.....our breakfast." },
+          { english: "drives", indonesian: "My father.....car to his office." },
+          // Tambahkan kata-kata lainnya sesuai kebutuhan
+        ];
+
+        var score = 0;
+      var currentWordIndex;
+      var shuffledWords;
+
+      function startGame() {
+        currentWordIndex = 0;
+        shuffledWords = shuffleArray(words);
+
+        var gameContainer = document.getElementById("game-container");
+        gameContainer.innerHTML = "";
+
+        showWord();
+      }
+
+      function showWord() {
+        var gameContainer = document.getElementById("game-container");
+        var indonesianWord = shuffledWords[currentWordIndex].indonesian;
+
+        var wordElement = document.createElement("p");
+        wordElement.textContent = indonesianWord;
+
+        var inputElement = document.createElement("input");
+        inputElement.placeholder = "Tulis jawaban mu disini";
+        inputElement.id = "answer-input";
+
+        var submitButton = document.createElement("button");
+        submitButton.textContent = "Next";
+        submitButton.onclick = function () {
+          checkAnswer();
+        };
+
+        gameContainer.appendChild(wordElement);
+        gameContainer.appendChild(inputElement);
+        gameContainer.appendChild(submitButton);
+      }
+
+      function checkAnswer() {
+        var userAnswer = document.getElementById("answer-input").value;
+        var correctAnswer = shuffledWords[currentWordIndex].english;
+
+        if (userAnswer === "") {
+          showPopup("alertBinggo");
+          return;
+        }
+
+        var alternativeAnswers = ["cooks","buys","borrow"];
+
+        if (userAnswer.toLowerCase() === correctAnswer.toLowerCase() || alternativeAnswers.includes(userAnswer.toLowerCase())) {
+          score += 100;
+          showPopup("alertBetul");
+
+          if (score >= 1000) {
+            var gameContainer = document.getElementById("game-container");
+            gameContainer.style.display = "none";
+
+            alertSelamat.style.display = "block";
+
+            alertBetul.style.display = "none";
+
+            alertLanjut.style.display = "block";
+          }
+        } else {
+          showPopup("alertSalah");
+        }
+
+        currentWordIndex++;
+
+        if (currentWordIndex < shuffledWords.length) {
+          resetGameContainer();
+          showWord();
+        } else if (score < 1000) {
+          var gameContainer = document.getElementById("game-container");
+          gameContainer.style.display = "none";
+          alertGagal.style.display = "block";
+          alertUlang.style.display = "block";
+          alertSalah.style.display = "none";
+        } else {
+          alert("Permainan selesai. Skor Akhir Anda: " + score);
+          resetGameContainer();
+          var startButton = document.createElement("button");
+          startButton.textContent = "Mulai Permainan";
+          startButton.onclick = function () {
+            startGame();
+          };
+          gameContainer.appendChild(startButton);
+        }
+      }
+
+      function showPopup(popupId) {
+        var popup = document.getElementById(popupId);
+        popup.style.display = "block";
+        setTimeout(function () {
+          popup.style.display = "none";
+        }, 2500); // Pop-up akan disembunyikan setelah 1 detik
+      }
+
+      function resetGameContainer() {
+        var gameContainer = document.getElementById("game-container");
+        gameContainer.innerHTML = "";
+      }
+
+      // Mengacak urutan array menggunakan algoritma Fisher-Yates
+      function shuffleArray(array) {
+        var currentIndex = array.length;
+        var temporaryValue, randomIndex;
+
+        while (0 !== currentIndex) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+      }
+    </script>
+
+    <!-- JS BOOTSTRAP -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- END BOOTSTRAP -->
+  </body>
+</html>
