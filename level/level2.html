@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Bahasa 4</title>
     <link rel="stylesheet" href="../style.css" />
     <!-- bootstrap -->
@@ -28,7 +29,6 @@
       }
 
       #game-container {
-        width: 400px;
         height: 350px;
         border: 1px solid black;
         display: flex;
@@ -37,13 +37,15 @@
         flex-direction: column;
         font-size: 30px;
         /* background-color: rgb(208, 248, 32); */
-        margin: 70px auto;
         cursor: pointer;
         text-align: center;
         border-radius: 50%;
         font-weight: bold;
         box-shadow: 10px 20px 20px rgb(228, 13, 13);
         color: rgb(197, 8, 8);
+        width: 100%;
+        max-width: 400px;
+        margin: 10px auto;
       }
 
       #alertBetul {
@@ -123,7 +125,7 @@
     <!-- END navbar -->
 
     <!-- JUMBOTRON -->
-    <div class="jumbotron" style="background-color: rgb(27, 236, 19)">
+    <div class="container jumbotron" style="background-color: rgb(27, 236, 19)">
       <h5 class="display-4">Congratulation! you deseve to be in Level two.</h5>
       <p class="lead">
         Pada level ini kamu akan menterjemahkan kosa kata Bahasa indonesia ke dalam Bahasa Inggris. Ada 15 kosa kata benda (noun) Jika jawaban benar point 100 dan salah point 0 .Untuk melanjutkan ke level selanjutnya kamu harus mengumpulkan
