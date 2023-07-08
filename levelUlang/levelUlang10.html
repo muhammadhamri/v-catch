@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Bahasa 4</title>
     <link rel="stylesheet" href="../style.css" />
 
@@ -21,7 +22,6 @@
     <!-- font icon -->
     <style>
       #game-container {
-        width: 400px;
         height: 350px;
         border: 1px solid black;
         display: flex;
@@ -30,11 +30,14 @@
         flex-direction: column;
         font-size: 25px;
         /* background-color: rgb(240, 44, 142); */
-        margin: 70px auto;
+
         font-weight: bold;
         color: black;
         text-align: center;
         box-shadow: 10px 20px 20px rgb(33, 235, 134);
+        width: 100%;
+        max-width: 400px;
+        margin: 10px auto;
       }
 
       #answer-input {
@@ -67,7 +70,7 @@
 
     <!-- JUMBOTRON -->
 
-    <div class="jumbotron" style="background-color: rgba(240, 14, 14, 0.979)">
+    <div class="container jumbotron" style="background-color: rgba(240, 14, 14, 0.979)">
       <h5 class="display-4 text-white">Never Give Up! You can do it..</h5>
       <p class="lead text-white">
         Pada level ini kamu akan menterjemahkan kosa kata Bahasa indonesia ke dalam Bahasa Inggris. Ada 15 soal. Jika benar point 100 dan salah point 0 .Untuk melanjutkan ke level selanjutnya kamu harus mengumpulkan point 1000.
