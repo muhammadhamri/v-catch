@@ -198,7 +198,7 @@
         { english: "student", indonesian: "SISWA" },
         { english: "nurse", indonesian: "PERAWAT" },
         { english: "doctor", indonesian: "DOKTER" },
-        { english: "house wife", indonesian: "IBU RUMAH TANGGA" },
+        { english: "housewife", indonesian: "IBU RUMAH TANGGA" },
         { english: "driver", indonesian: "SOPIR" },
         { english: "principle", indonesian: "KEPALA SEKOLAH" },
         { english: "policeman", indonesian: "POLISI" },
@@ -256,7 +256,9 @@
           return;
         }
 
-        if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+        var alternativeAnswers = ["headmaster"];
+
+        if (userAnswer.toLowerCase() === correctAnswer.toLowerCase() || alternativeAnswers.toLowerCase(userAnswer.toLowerCase())) {
           score += 100;
 
           showPopup("alertBetul");
