@@ -251,7 +251,7 @@
 
         var alternativeAnswers = ["headmaster"];
 
-        if (userAnswer.toLowerCase() === correctAnswer.toLowerCase() || alternativeAnswers.toLowerCase(userAnswer(toLowerCase()))) {
+        if (userAnswer.toLowerCase() === correctAnswer.toLowerCase() || alternativeAnswers.includes(userAnswer(toLowerCase()))) {
           score += 100;
 
           showPopup("alertBetul");
