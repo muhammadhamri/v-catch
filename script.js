@@ -47,3 +47,28 @@ function showPopup(popupId) {
 }
 
 alertLevel();
+
+//audio
+
+// const backsound = document.getElementById("backsound");
+// const sound = document.getElementById("sound");
+
+// // Menambahkan event listener untuk memainkan audio setelah klik pertama
+// sound.addEventListener("click", function () {
+//   backsound.play();
+//   // Hapus event listener agar tidak memainkan ulang setiap kali ada klik
+//   sound.removeEventListener("click", arguments.callee);
+// });
+
+const backsound = document.getElementById("backsound");
+const sound = document.getElementById("sound");
+
+// Membuat fungsi yang akan dijalankan saat elemen diklik
+function playAudio() {
+  backsound.play();
+  // Hapus event listener agar tidak memainkan ulang setiap kali ada klik
+  // sound.removeEventListener("click", playAudio);
+}
+
+// Menambahkan event listener untuk memanggil fungsi saat elemen diklik
+sound.addEventListener("click", playAudio);

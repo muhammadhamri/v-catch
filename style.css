@@ -565,3 +565,12 @@ h1 a {
 /* container-level */
 
 /* container-level end */
+
+/* audio */
+
+#sound {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  cursor: pointer;
+}
